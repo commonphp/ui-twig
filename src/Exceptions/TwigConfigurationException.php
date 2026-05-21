@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace CommonPHP\Drivers\UI\Twig\Exceptions;
 
-class TwigConfigurationException
-{
+use CommonPHP\UI\Exceptions\UIException;
 
+class TwigConfigurationException extends UIException
+{
 }

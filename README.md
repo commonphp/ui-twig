@@ -21,7 +21,23 @@ composer require comphp/ui-twig
 ```php
 <?php
 
-// TODO: Write usage
+use CommonPHP\Drivers\UI\Twig\TwigRenderer;
+use CommonPHP\UI\Component;
+use CommonPHP\UI\ComponentRegistry;
+use CommonPHP\UI\Layout;
+use CommonPHP\UI\View;
+
+$components = new ComponentRegistry([
+    new Component('badge', 'components.badge', ['label' => 'Default']),
+]);
+
+$renderer = new TwigRenderer([__DIR__ . '/templates'], $components);
+
+$html = $renderer->render(new View(
+    'pages.dashboard',
+    ['title' => 'Dashboard', 'label' => 'Ready'],
+    new Layout('layouts.app'),
+));
 ```
 
 ## Driver Notes
